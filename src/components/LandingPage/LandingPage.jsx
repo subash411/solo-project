@@ -14,41 +14,26 @@ function LandingPage() {
   };
 
   return (
+    <body>
     <div className="container">
       <h2>{heading}</h2>
 
       <div className="grid">
         <div className="grid-col grid-col_8">
+        
+          <h1>FUN SAGA</h1>
+
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
+            Welcome to my app, There's so much that happened in last two years and we all went
+            through alot, personally we all go through lot of mental stress and try to find a 
+            spot where we can just forget about it even for little bit and relax so keeping all that
+            in mind I created this app called FUN SAGA!!
           </p>
 
           <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
-          </p>
-
-          <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
+            Here we can come and go through bunch of different funny images, memes and videos and 
+            try to escape the reality even fro minute or two of our life and bring that smile out.
+            So come join me in this adventure and laugh a little and try to spread the happiness.
           </p>
         </div>
         <div className="grid-col grid-col_4">
@@ -63,6 +48,7 @@ function LandingPage() {
         </div>
       </div>
     </div>
+    </body>
   );
 }
 

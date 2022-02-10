@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   HashRouter as Router,
   Redirect,
   Route,
   Switch,
 } from 'react-router-dom';
+import axios from 'axios';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -19,12 +20,13 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import GalleryList from '../GalleryList/GalleryList';
 
 import './App.css';
 
 function App() {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const user = useSelector(store => store.user);
 
   useEffect(() => {
@@ -68,6 +70,13 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            exact
+            path="/gallery"
+          >
+            <GalleryList />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
@@ -109,6 +118,21 @@ function App() {
               <LandingPage />
             }
           </Route>
+
+          <Route
+            exact
+            path="/gallery"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/gallery" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

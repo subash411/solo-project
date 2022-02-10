@@ -14,7 +14,7 @@ function RegisterForm() {
       type: 'REGISTER',
       payload: {
         username: username,
-        password: password,
+        password: password
       },
     });
   }; // end registerUser
@@ -27,6 +27,7 @@ function RegisterForm() {
           {errors.registrationMessage}
         </h3>
       )}
+      
       <div>
         <label htmlFor="username">
           Username:
