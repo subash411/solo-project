@@ -56,20 +56,21 @@ router.post('/', (req, res) => {
 
     queryText = `
     INSERT INTO "media"
-    ("title", "url", "description")
+    ("title", "url", "description", "type")
     VALUES
-    ($1, $2, $3);
+    ($1, $2, $3, $4);
     `;
 
     queryParams = [
         req.body.title,
         req.body.url,
-        req.body.description
+        req.body.description,
+        req.body.type
     ];
 
     // sent data to database
     pool.query(queryText, queryParams)
-        .then((dbRes) => {
+        .then(() => {
             // tell client of success
             console.log('data from database');
             res.sendStatus(201);

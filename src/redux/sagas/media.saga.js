@@ -2,13 +2,20 @@ import axios from 'axios';
 import {put, takeLatest} from 'redux-saga/effects';
 
 //worker saga
+function* createMedia (action) {
+    //const id = action.payload.id
+    try{
+        yield axios.post('api/media', action.payload);
+        
+    } catch (error) {
+        console.log('media like request failed', error)
+    }
+} //end
+
 function* fetchMedia() {
     try{
-        const config = {
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
-          };
-        const response = yield axios.get('/api/media', config);
+        
+        const response = yield axios.get('/api/media');
         yield put ({
             type: 'SET_MEDIA',
             payload: response.data
@@ -18,8 +25,10 @@ function* fetchMedia() {
     }
 }
 function* mediaSaga() {
+    yield takeLatest ('SET_MEDIA', createMedia);
     yield takeLatest ('FETCH_MEDIA', fetchMedia);
     yield takeLatest ('DELETE_MEDIA', deleteMedia);
+   // yield takeLatest ('LIKE_MEDIA', moreLikes);
 }
 
 function* deleteMedia (action) {
@@ -32,6 +41,8 @@ function* deleteMedia (action) {
     } catch (error) {
         console.log('media delete request failed', error);
     }
+
+    
 
 }
 
