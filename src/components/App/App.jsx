@@ -20,11 +20,12 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import GalleryList from '../GalleryList/GalleryList';
+import MediaList from '../MediaList/MediaList';
 
 import './App.css';
 
 function App() {
+  
 
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
@@ -72,9 +73,9 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/gallery"
+            path="/media"
           >
-            <GalleryList />
+            <MediaList />
           </ProtectedRoute>
 
           <Route
@@ -121,12 +122,12 @@ function App() {
 
           <Route
             exact
-            path="/gallery"
+            path="/media"
           >
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/gallery" />
+              <Redirect to="/media" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import LikeItem from './LikeItem/LikeItem';
 
-const GalleryItem = ({picture, moreLikes, deleteGallery}) => {
+const GalleryItem = ({picture, moreLikes, deleteMedia}) => {
     const [turner, setTurner] = useState(true);
     return (
         <div key={picture.id} className="displayArea">
@@ -10,7 +10,7 @@ const GalleryItem = ({picture, moreLikes, deleteGallery}) => {
             </div>
             <LikeItem picture={picture}
              moreLikes={moreLikes} 
-            //  deleteGallery={deleteGallery}
+             deleteGallery={deleteMedia}
              />
         </div>
     )

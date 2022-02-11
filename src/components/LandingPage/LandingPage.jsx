@@ -15,6 +15,7 @@ function LandingPage() {
 
   return (
     <body>
+    
     <div className="container">
       <h2>{heading}</h2>
 
@@ -36,8 +37,10 @@ function LandingPage() {
             So come join me in this adventure and laugh a little and try to spread the happiness.
           </p>
         </div>
+        
         <div className="grid-col grid-col_4">
           <RegisterForm />
+          
 
           <center>
             <h4>Already a Member?</h4>
