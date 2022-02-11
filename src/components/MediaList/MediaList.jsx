@@ -4,6 +4,7 @@ import MediaItem from '../MediaItem/MediaItem';
 import {useDispatch} from 'react-redux';
 import React, {useEffect} from 'react';
 import axios from 'axios';
+import AddMediaBtn from '../AddMediaBtn/AddMediaBtn'
 
 const MediaList = () => {
     const store = useReduxStore();
@@ -29,9 +30,11 @@ const MediaList = () => {
           });
       }// end deleteGallery function
     return (
+        <>
+        <AddMediaBtn />
         <div className="mediaArea">
             {
-               store.media.map(picture => (
+              store.mediaReducer.map(picture => (
                     <MediaItem key={picture.id}
                      picture={picture} moreLikes={picture.likes}
                      deleteMedia={deleteMedia} 
@@ -39,6 +42,7 @@ const MediaList = () => {
                 ))
             }
         </div>
+        </>
     );
 }
 

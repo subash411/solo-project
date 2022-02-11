@@ -9,23 +9,30 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <MediaList />
-      {/* <LogOutButton className="btn" /> */}
       <center>
        <Link to="/media"><button className="btn">media</button></Link>
        </center>
        <br></br>
-
+        
        <center>
        <Link to="/meme"><button className="btn">Meme</button></Link>
        </center>
 
        <br></br>
+
        <center>
        <Link to="/video"><button className="btn">Video</button></Link>
        </center>
+      <h2>Welcome, {user.username}!</h2>
+      <p>Your ID is: {user.id}</p>
+      <MediaList />
+
+      {/* <AddMediaBtn className="AddMediaBtn" /> */}
+      {/* <LogOutButton className="btn" /> */}
+      
+
+       
+       
     </div>
   );
 }

@@ -21,6 +21,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import MediaList from '../MediaList/MediaList';
+import MediaForm from '../MediaForm/MediaForm';
 
 import './App.css';
 
@@ -76,6 +77,13 @@ function App() {
             path="/media"
           >
             <MediaList />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/mediaForm"
+          >
+            <MediaForm />
           </ProtectedRoute>
 
           <Route
