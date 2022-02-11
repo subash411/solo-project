@@ -1,10 +1,10 @@
-const galleryReducer = (state = [], action) => {
+const mediaReducer = (state = [], action) => {
     switch(action.type) {
-        case 'SET_GALLERY':
+        case 'SET_MEDIA':
             return action.payload;
             default: 
             return state;
     }
 }
 
-export default galleryReducer;
+export default mediaReducer;

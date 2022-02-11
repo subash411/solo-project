@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import './GalleryForm.css';
+import './MediaForm.css';
 
-const GalleryForm = ({addGallery}) => {
+const MediaForm = ({addMedia}) => {
     //Set variables for inputs
 
     const [newTitle, setNewTitle] = useState('');
@@ -22,7 +22,7 @@ const handleSubmit = (event) => {
     };
 
     //sent data to server side
-    addGallery(newItem)
+    addMedia(newItem)
 
     //clear inputs
     setNewTitle('');
@@ -31,8 +31,8 @@ const handleSubmit = (event) => {
 }
 
 return (
-    <div className="galleryForm">
-        <h3 className="galleryTitle">Add to Street Art Gallery</h3>
+    <div className="mediaForm">
+        <h3 className="mediaTitle">Add to Street Art Gallery</h3>
         <form onSubmit={handleSubmit}>
 
                 <label>Title:</label>
@@ -62,4 +62,4 @@ return (
 )
 }
 
-export default GalleryForm;
+export default MediaForm;

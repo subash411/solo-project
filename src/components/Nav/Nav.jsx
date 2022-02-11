@@ -27,6 +27,18 @@ function Nav() {
             <Link className="navLink" to="/user">
               Home
             </Link>
+            
+            <Link className="navLink" to="/media">
+               Media
+            </Link>
+
+            <Link className="navLink" to="/meme">
+               Meme
+            </Link>
+
+            <Link className="navLink" to="/video">
+               Video
+            </Link>
 
             <Link className="navLink" to="/info">
               Info Page
@@ -39,9 +51,7 @@ function Nav() {
         <Link className="navLink" to="/about">
           About
         </Link>
-        <Link className="navLink" to="/gallery">
-          Gallery
-        </Link>
+        
       </div>
     </div>
   );

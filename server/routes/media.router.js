@@ -6,7 +6,7 @@ const pool = require('../modules/pool.js');
 router.put('/like/:id', (req, res) => {
     console.log(req.params);
     const queryText = `
-    UPDATE "gallery"
+    UPDATE "media"
     SET "likes" = "likes" + 1
     WHERE "id" = $1;
     `;
@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
     // res.send(galleryItems);
 
     const queryText = `
-    SELECT * FROM "gallery"
+    SELECT * FROM "media"
     ORDER BY "id" ASC;
     `;
 
@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
     console.log(req.body);
 
     queryText = `
-    INSERT INTO "gallery"
+    INSERT INTO "media"
     ("title", "url", "description")
     VALUES
     ($1, $2, $3);
@@ -85,7 +85,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
 
     const queryText = `
-        DELETE FROM "gallery"
+        DELETE FROM "media"
         WHERE "id" = $1;
     `;
 
