@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import LikeMediaItem from './LikeMediaItem/LikeMediaItem';
 
-const MediaItem = ({media, deleteMedia}) => {
+const MediaItem = ({media}) => {
     console.log('media in mediaItem', media);
     const [turner, setTurner] = useState(true);
     return (
@@ -9,7 +9,6 @@ const MediaItem = ({media, deleteMedia}) => {
         <div key={media.id} className="displayArea">
             <div className="toggleArea" onClick={() => setTurner(!turner)}>
                 {turner ? <img className="pic" src={media.url} /> : <h4>{media.description}</h4>}
-                {deleteMedia}
             </div>
             <LikeMediaItem
                 media={media}

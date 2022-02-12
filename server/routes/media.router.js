@@ -50,23 +50,22 @@ router.get('/', (req, res) => {
         });
 }); // END GET Route
 
-// POST
+// POST creating new media
 router.post('/', (req, res) => {
     // check data sent
-    console.log(req.body);
+    console.log('new media', req.body);
 
     queryText = `
     INSERT INTO "media"
-    ("title", "url", "description", "type")
+    ("title", "url", "description")
     VALUES
-    ($1, $2, $3, $4);
+    ($1, $2, $3);
     `;
 
     queryParams = [
         req.body.title,
         req.body.url,
         req.body.description,
-        req.body.type
     ];
 
     // sent data to database

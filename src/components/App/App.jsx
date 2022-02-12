@@ -73,33 +73,33 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          <Route
             exact
-            path="/media"
+            path="/media/:id"
           >
             <MediaList />
-          </ProtectedRoute>
+          </Route>
 
-          <ProtectedRoute
+          <Route
             exact
-            path="/mediaForm"
+            path="/mediaForm/:id"
           >
             <MediaForm />
-          </ProtectedRoute>
+          </Route>
 
-          <ProtectedRoute
+          <Route
             exact
-            path="/meme"
+            path="/meme/:id"
           >
             <MemeList />
-          </ProtectedRoute>
+          </Route>
 
-          <ProtectedRoute
+          <Route
             exact
-            path="/memeForm"
+            path="/memeForm/:id"
           >
             <MemeForm />
-          </ProtectedRoute>
+          </Route>
 
           <Route
             exact

@@ -8,14 +8,26 @@ import './MediaForm.css';
 
 function MediaForm() {
     //Set variables for inputs
-
+    const params = useParams();
+    console.log('User id in add media form', params.id);
     const [newTitle, setNewTitle] = useState('');
     const [newUrl, setNewUrl] = useState('');
     const[newDescription, setNewDescription] = useState('');
+    
+    const [newMedia, setNewMedia] = useState({
+        title: '',
+        url: '',
+        description: '',
+    })
+
     const dispatch = useDispatch();
 
-    
+    const history = useHistory();
 
+    const handleChange = (evt, property) => {
+        setNewMedia({...newMedia, [property]: evt.target.value})
+        
+    }
 
 const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,15 +36,9 @@ const handleSubmit = (event) => {
 
     dispatch({
         type: 'SET_MEDIA',
-        payload:{
-        title: newTitle,
-        url: newUrl,
-        description: newDescription
-        }
-        
-
+        payload: newMedia
     });
-
+    history.push(`/media/${params.id}`)
     // //sent data to server side
     // addMedia(newItem)
 
@@ -49,23 +55,23 @@ return (
                 <label>Title:</label>
                 <input
                     type="text"
-                    onChange = {(event) => setNewTitle(event.target.value)}
-                    value={newTitle}
+                    onChange = {(evt) => handleChange(evt, "title")}
+                    value={newMedia.title}
                 />
 
                 <label>Url:</label>
                 <input
                     type="text"
-                    onChange={(event) => setNewUrl(event.target.value)}
-                    value={newUrl}
+                    onChange = {(evt) => handleChange(evt, "url")}
+                    value={newMedia.url}
                 />
                 
 
                 <label>Description:</label>
                 <input
                     type="text"
-                    onChange={(event) => setNewDescription(event.target.value)}
-                    value={newDescription}
+                    onChange = {(evt) => handleChange(evt, "description")}
+                    value={newMedia.description}
                 />
 
                 <button className="addBtn">Add</button>

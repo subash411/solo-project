@@ -3,11 +3,15 @@ import {put, takeLatest} from 'redux-saga/effects';
 
 //worker saga
 function* createMeme (action) {
-    //const id = action.payload.id
+    console.log('createMeme', action.payload);
     try{
         yield axios.post('api/meme', action.payload);
-        
-    } catch (error) {
+
+        yield put ({
+            type: 'FETCH_MEME'
+        })   
+    } 
+    catch (error) {
         console.log('meme like request failed', error)
     }
 } //end
@@ -16,6 +20,7 @@ function* fetchMeme() {
     try{
         
         const response = yield axios.get('/api/meme');
+        
         yield put ({
             type: 'SET_MEME',
             payload: response.data
@@ -24,26 +29,24 @@ function* fetchMeme() {
         console.log('meme get request failed', error);
     }
 }
-function* mediaSaga() {
+function* memeSaga() {
     yield takeLatest ('SET_MEME', createMeme);
     yield takeLatest ('FETCH_MEME', fetchMeme);
     yield takeLatest ('DELETE_MEME', deleteMeme);
-   // yield takeLatest ('LIKE_MEDIA', moreLikes);
 }
 
 function* deleteMeme (action) {
-    const id = action.payload.id
+    console.log("memeId in delete saga", action.payload);
+    const memeId = action.payload
     try{
-        yield axios.delete(`/api/meme/${id}`);
+        yield axios.delete(`/api/meme/${memeId}`);
+
         yield put ({
           type: 'FETCH_MEME'
         })
     } catch (error) {
         console.log('meme delete request failed', error);
     }
+}; // end of deleteMeme
 
-    
-
-}
-
-export default mediaSaga;
+export default memeSaga;
