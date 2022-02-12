@@ -22,18 +22,19 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import MediaList from '../MediaList/MediaList';
 import MediaForm from '../MediaForm/MediaForm';
+import MemeList from '../MemeList/MemeList';
+import MemeForm from '../MemeForm/MemeForm';
 
 import './App.css';
 
 function App() {
-  
-
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
+  
 
   return (
     <Router>
@@ -86,6 +87,20 @@ function App() {
             <MediaForm />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            exact
+            path="/meme"
+          >
+            <MemeList />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/memeForm"
+          >
+            <MemeForm />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
@@ -136,6 +151,20 @@ function App() {
               // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/media" />
+              :
+              // Otherwise, show the Landing page
+              <LandingPage />
+            }
+          </Route>
+
+          <Route
+            exact
+            path="/meme"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/meme" />
               :
               // Otherwise, show the Landing page
               <LandingPage />

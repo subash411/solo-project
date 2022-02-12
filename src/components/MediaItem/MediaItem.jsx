@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
-import LikeItem from './LikeItem/LikeItem';
+import LikeMediaItem from './LikeMediaItem/LikeMediaItem';
 
-const GalleryItem = ({picture, moreLikes, deleteMedia}) => {
+const MediaItem = ({media, deleteMedia}) => {
+    console.log('media in mediaItem', media);
     const [turner, setTurner] = useState(true);
     return (
-        <div key={picture.id} className="displayArea">
+        
+        <div key={media.id} className="displayArea">
             <div className="toggleArea" onClick={() => setTurner(!turner)}>
-                {turner ? <img className="pic" src={picture.url} /> : <h4>{picture.description}</h4>}
+                {turner ? <img className="pic" src={media.url} /> : <h4>{media.description}</h4>}
+                {deleteMedia}
             </div>
-            <LikeItem picture={picture}
-             moreLikes={moreLikes} 
-             deleteGallery={deleteMedia}
+            <LikeMediaItem
+                media={media}
              />
         </div>
     )
@@ -18,5 +20,5 @@ const GalleryItem = ({picture, moreLikes, deleteMedia}) => {
 
 
 
-export default GalleryItem;
+export default MediaItem;
     

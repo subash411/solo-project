@@ -23,9 +23,8 @@ const handleSubmit = (event) => {
     };
 
     //sent data to server side
-    addMeme(newItem)
-
-    //clear inputs
+   // addMeme(newItem)
+  //clear inputs
     setNewTitle('');
     setNewUrl('');
 }
@@ -48,11 +47,10 @@ return (
                     value={newUrl}
                 />
 
-
                 <button className="addBtn">Add</button>
         </form>
     </div>
 )
 }
 
-export default MediaForm;
+export default MemeForm;

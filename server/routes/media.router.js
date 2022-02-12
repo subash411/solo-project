@@ -2,21 +2,22 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
-//PUt Route
-router.put('/like/:id', (req, res) => {
-    console.log(req.params);
+//PUT updating Likes
+router.put('/like/:mediaId', (req, res) => {
+    console.log('media ID', req.params.mediaId);
+
     const queryText = `
     UPDATE "media"
     SET "likes" = "likes" + 1
     WHERE "id" = $1;
     `;
 
-    const queryParams = [req.params.id];
+    const queryParams = [req.params.mediaId];
 
     // request update to database
     pool.query(queryText, queryParams)
         .then((dbRes) => {
-            console.log('added like');
+            console.log('added like', dbRes);
             // tell client of success
             res.sendStatus(201);
         })
@@ -25,7 +26,7 @@ router.put('/like/:id', (req, res) => {
             console.log('pool PUT ERROR', err);
             res.sendStatus(500);
         });
-}); // END PUT Route
+}); // END PUT updating Likes
 
 // GET Route
 router.get('/', (req, res) => {
@@ -82,15 +83,16 @@ router.post('/', (req, res) => {
         });
 });// end POST route
 
-// DELETE
-router.delete('/:id', (req, res) => {
-
+// DELETE Media
+router.delete('/:mediaId', (req, res) => {
+    console.log('delete mediaId', req.params.mediaId);
+    
     const queryText = `
         DELETE FROM "media"
         WHERE "id" = $1;
     `;
 
-    const queryParams = [ req.params.id ];
+    const queryParams = [ req.params.mediaId ];
 
     // sent request to database
     pool.query(queryText, queryParams)

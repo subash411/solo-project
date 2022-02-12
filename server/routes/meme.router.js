@@ -1,69 +1,108 @@
 const express = require('express');
-const pool = require('../modules/pool');
-
 const router = express.Router();
+const pool = require('../modules/pool.js');
 
-// return all favorite images
+//PUt Route
+router.put('/like/:id', (req, res) => {
+    console.log(req.params);
+    const queryText = `
+    UPDATE "meme"
+    SET "likes" = "likes" + 1
+    WHERE "id" = $1;
+    `;
+
+    const queryParams = [req.params.id];
+
+    // request update to database
+    pool.query(queryText, queryParams)
+        .then((dbRes) => {
+            console.log('added like');
+            // tell client of success
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            // tell client of failure
+            console.log('pool PUT ERROR', err);
+            res.sendStatus(500);
+        });
+}); // END PUT Route
+
+// GET Route
 router.get('/', (req, res) => {
-    const queryText = 'SELECT * FROM "memeImages";';
-    pool
-
-    .query(queryText)
-    .then((result) => {
-        res.send(result.rows);
-    })
-    .catch((err) => {
-        console.log('Error', err);
-        res.sendStatus(500);
-    });
-});
-
-//add new favorite
-router.post('/', (req, res) => {
-    const newMeme = req.body.url;
-    const newTitle = req.body.alt;
+    // res.send(galleryItems);
 
     const queryText = `
-    INSERT INTO "memeImages" ("name", "url")
-    VALUES ($1,$2) `;
+    SELECT * FROM "meme"
+    ORDER BY "id" ASC;
+    `;
 
-    const queryValues = [newTitle, newMeme]
-  pool.query(queryText, queryValues)
-  .then(() => {res.sendStatus(201); })
-  .catch((err) => {
-    console.log('Error completing POST query', err)
-  })
-});
-// update given meme with a category id
-router.put('/:memeId', (req, res) => {
-	// req.body should contain a category_id to add to this favorite image
+    // send request to database
+    pool.query(queryText)
+        .then((dbRes) => {
+            console.log('data from database:', dbRes);
+            res.send(dbRes.rows);
+        })
+        .catch((err) => {
+            // tell client of failure
+            console.log('DB GET ERROR', err);
+            res.sendStatus(500);
+        });
+}); // END GET Route
 
-  console.log('in PUT fav router req.body', req.body);
-  console.log('in PUT fav router req.params', req.params.id);
+// POST
+router.post('/', (req, res) => {
+    // check data sent
+    console.log(req.body);
 
-  const queryText = `
-    UPDATE "memeImages"
-    SET "categoryId" = $1
-    WHERE id = $2;
-  `;
+    queryText = `
+    INSERT INTO "meme"
+    ("title", "url", "type")
+    VALUES
+    ($1, $2, $3, $4);
+    `;
 
-  const queryParams = [
-    req.body, req.params.id
-  ];
+    queryParams = [
+        req.body.title,
+        req.body.url,
+        req.body.type
+    ];
 
-  pool.query(queryText, queryParams)
-    .then(() => {
-      res.sendStatus(200);
-    })
-    .catch((err) => {
-      res.sendStatus(500);
-    })
-});
+    // sent data to database
+    pool.query(queryText, queryParams)
+        .then(() => {
+            // tell client of success
+            console.log('data from database');
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            // tell client of failure
+            console.log('pool POST ERROR', err);
+            res.sendStatus(500);
+        });
+});// end POST route
 
-// delete a favorite
-router.delete('/', (req, res) => {
-	res.sendStatus(200);
-});
+// DELETE
+router.delete('/:id', (req, res) => {
+
+    const queryText = `
+        DELETE FROM "meme"
+        WHERE "id" = $1;
+    `;
+
+    const queryParams = [ req.params.id ];
+
+    // sent request to database
+    pool.query(queryText, queryParams)
+        .then((dbRes) => {
+            // tell client of success
+            console.log('pool DELETE success!');
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            // tell client of failure
+            console.log('pool DELETE ERROR!', err);
+            res.sendStatus(500);
+        });
+});// end DELETE route
 
 module.exports = router;
-
