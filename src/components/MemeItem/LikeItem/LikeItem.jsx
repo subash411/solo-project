@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import DeleteItem from '../DeleteItem/DeleteItem';
 
-const LikeItem = ({picture, moreLikes , deleteMedia}) => {
+const LikeItem = ({picture, moreLikes , deleteMeme}) => {
     const onLike = (picture) => {
         console.log('in onLike', picture.id);
         moreLikes(picture.id);
@@ -11,7 +11,7 @@ const LikeItem = ({picture, moreLikes , deleteMedia}) => {
   const moreLikes = (id) => {
     console.log('in moreLikes', id);
     // send data to server side
-    axios.put(`/media/like/${id}`)
+    axios.put(`/meme/like/${id}`)
       .then((res) => {
         // tell client of success
         console.log('axios PUT success', res);
@@ -26,7 +26,7 @@ const LikeItem = ({picture, moreLikes , deleteMedia}) => {
         <>
             <div className="buttonArea">
                 <button className="likes" onClick={() => onLike(picture)}>&#128077;</button>
-                <DeleteItem picture={picture} deleteMedia ={deleteMedia} />
+                <DeleteItem picture={picture} deleteMeme ={deleteMeme} />
             </div>
             <div className="likeText">
                 <p>{picture.likes} people like this</p>

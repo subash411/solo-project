@@ -1,13 +1,12 @@
-import useReduxStore from '../../hooks/useReduxStore';
 import MediaItem from '../MediaItem/MediaItem';
-
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import AddMediaBtn from '../AddMediaBtn/AddMediaBtn'
 
 const MediaList = () => {
-    const store = useReduxStore();
+    const mediaList = useSelector((store) => store.mediaReducer);
+    console.log('media in mediaList', mediaList);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,11 +33,11 @@ const MediaList = () => {
         <AddMediaBtn />
         <div className="mediaArea">
             {
-              store.mediaReducer.map(picture => (
-                    <MediaItem key={picture.id}
-                     picture={picture} moreLikes={picture.likes}
-                     deleteMedia={deleteMedia} 
-                     />
+              mediaList.map(media => (
+                    <MediaItem 
+                      media={media} 
+                      deleteMedia={deleteMedia} 
+                    />
                 ))
             }
         </div>

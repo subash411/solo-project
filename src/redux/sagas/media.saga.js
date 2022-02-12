@@ -32,18 +32,17 @@ function* mediaSaga() {
 }
 
 function* deleteMedia (action) {
-    const id = action.payload.id
+    console.log("mediaId in delete saga", action.payload);
+    const mediaId = action.payload
     try{
-        yield axios.delete(`/api/media/${id}`);
+        yield axios.delete(`/api/media/${mediaId}`);
+
         yield put ({
           type: 'FETCH_MEDIA'
         })
     } catch (error) {
         console.log('media delete request failed', error);
     }
-
-    
-
-}
+}; // end of deleteMedia
 
 export default mediaSaga;

@@ -7,7 +7,7 @@ const DeleteItem = ({picture}) => {
     const onDelete = (picture) => {
         console.log(('in on Delete', picture.id));
         dispatch({
-            type: 'DELETE_MEDIA',
+            type: 'DELETE_MEME',
             payload: picture
         })
     }
