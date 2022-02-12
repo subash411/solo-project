@@ -2,21 +2,22 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
-//PUt Route
-router.put('/like/:id', (req, res) => {
-    console.log(req.params);
+//PUT updating Likes
+router.put('/like/:memeId', (req, res) => {
+    console.log('meme ID', req.params.memeId);
+
     const queryText = `
     UPDATE "meme"
     SET "likes" = "likes" + 1
     WHERE "id" = $1;
     `;
 
-    const queryParams = [req.params.id];
+    const queryParams = [req.params.memeId];
 
     // request update to database
     pool.query(queryText, queryParams)
         .then((dbRes) => {
-            console.log('added like');
+            console.log('added like', dbRes);
             // tell client of success
             res.sendStatus(201);
         })
@@ -25,11 +26,11 @@ router.put('/like/:id', (req, res) => {
             console.log('pool PUT ERROR', err);
             res.sendStatus(500);
         });
-}); // END PUT Route
+}); // END PUT updating Likes
 
 // GET Route
 router.get('/', (req, res) => {
-    // res.send(galleryItems);
+    // res.send(memeItems);
 
     const queryText = `
     SELECT * FROM "meme"
@@ -49,22 +50,21 @@ router.get('/', (req, res) => {
         });
 }); // END GET Route
 
-// POST
+// POST creating new meme
 router.post('/', (req, res) => {
     // check data sent
-    console.log(req.body);
+    console.log('new meme', req.body);
 
     queryText = `
     INSERT INTO "meme"
-    ("title", "url", "type")
+    ("title", "url")
     VALUES
-    ($1, $2, $3, $4);
+    ($1, $2);
     `;
 
     queryParams = [
         req.body.title,
         req.body.url,
-        req.body.type
     ];
 
     // sent data to database
@@ -81,15 +81,16 @@ router.post('/', (req, res) => {
         });
 });// end POST route
 
-// DELETE
-router.delete('/:id', (req, res) => {
-
+// DELETE Meme
+router.delete('/:memeId', (req, res) => {
+    console.log('delete memeId', req.params.memeId);
+    
     const queryText = `
         DELETE FROM "meme"
         WHERE "id" = $1;
     `;
 
-    const queryParams = [ req.params.id ];
+    const queryParams = [ req.params.memeId ];
 
     // sent request to database
     pool.query(queryText, queryParams)

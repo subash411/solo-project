@@ -1,47 +1,40 @@
-
 import MemeItem from '../MemeItem/MemeItem';
 import {useDispatch, useSelector} from 'react-redux';
 import React, {useEffect} from 'react';
-import axios from 'axios';
+import {useParams} from 'react-router-dom'
 import AddMemeBtn from '../AddMemeBtn/AddMemeBtn'
 
 const MemeList = () => {
- 
+    // passing the User Id around
+    const params = useParams();
+    console.log('Id is', params.id);
+
+    // Getting all the media from the store reducer
+    const memeList = useSelector((store) => store.memeReducer);
+    console.log('media in memeList', memeList);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch ({
             type: 'FETCH_MEME'
         })
-    }, [])
-    // loop through gallery
-    const deleteMeme = (id) => {
-        console.log('in deleteMeme:', id);
-        // send data to server side
-        axios.delete(`/meme/${id}`)
-          .then((res) => {
-            // tell client of success
-            console.log('axios DELETE success!');
-          })
-          .catch((err) => {
-            // tell client of failure
-            console.log('axios DELETE ERROR!', err);
-          });
-      }// end deleteMeme function
+    }, [params.id])
+
     return (
-        <>
-        <AddMemeBtn />
+      <>
+        <div>
+          <AddMemeBtn />
+        </div>
         <div className="memeArea">
             {
-              store.memeReducer.map(picture => (
-                    <MemeItem key={picture.id}
-                     picture={picture} moreLikes={picture.likes}
-                     deleteMeme={deleteMeme} 
-                     />
+              memeList.map(meme => (
+                    <MemeItem 
+                      meme={meme} 
+                    />
                 ))
             }
-        </div>
-        </>
+          </div>
+      </>
     );
 }
 

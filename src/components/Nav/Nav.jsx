@@ -28,11 +28,11 @@ function Nav() {
               Home
             </Link>
             
-            <Link className="navLink" to="/media">
+            <Link className="navLink" to={`/media/${user.id}`}>
                Media
             </Link>
 
-            <Link className="navLink" to="/meme">
+            <Link className="navLink" to={`/meme/${user.id}`}>
                Meme
             </Link>
 

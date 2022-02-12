@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
-import LikeItem from './LikeItem/LikeItem';
+import LikeMemeItem from './LikeMemeItem/LikeMemeItem';
 
-const MemeItem = ({picture, moreLikes, deleteMeme}) => {
+const MemeItem = ({meme}) => {
+    console.log('meme in memeItem', meme);
     const [turner, setTurner] = useState(true);
     return (
-        <div key={picture.id} className="displayArea">
+        
+        <div key={meme.id} className="displayArea">
             <div className="toggleArea" onClick={() => setTurner(!turner)}>
-                {turner ? <img className="pic" src={picture.url} /> : <h4>{picture.description}</h4>}
+             <img className="pic" src={meme.url} /> 
             </div>
-            <LikeItem picture={picture}
-             moreLikes={moreLikes} 
-             deleteMeme={deleteMedia}
+            <LikeMemeItem
+                meme={meme}
              />
         </div>
     )
@@ -19,4 +20,3 @@ const MemeItem = ({picture, moreLikes, deleteMeme}) => {
 
 
 export default MemeItem;
-    

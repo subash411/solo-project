@@ -1,7 +1,6 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
-import MediaList from '../MediaList/MediaList';
 import {Link } from "react-router-dom";
 
 function UserPage() {
@@ -10,12 +9,12 @@ function UserPage() {
   return (
     <div className="container">
       <center>
-       <Link to="/media"><button className="btn">media</button></Link>
+       <Link to={`/media/${user.id}`} ><button className="btn">media</button></Link>
        </center>
        <br></br>
         
        <center>
-       <Link to="/meme"><button className="btn">Meme</button></Link>
+       <Link to={`/meme/${user.id}`} ><button className="btn">meme</button></Link>
        </center>
 
        <br></br>
@@ -25,14 +24,6 @@ function UserPage() {
        </center>
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
-      <MediaList />
-
-      {/* <AddMediaBtn className="AddMediaBtn" /> */}
-      {/* <LogOutButton className="btn" /> */}
-      
-
-       
-       
     </div>
   );
 }

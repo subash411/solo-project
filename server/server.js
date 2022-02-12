@@ -10,6 +10,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const mediaRouter = require ('./routes/media.router')
+const memeRouter = require ('./routes/meme.router')
 
 
 // Body parser middleware
@@ -25,8 +26,9 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
- app.use('/api/media', mediaRouter)
-//  app.use('/api/meme', memeRouter)
+ app.use('/api/media', mediaRouter);
+app.use('/api/meme', memeRouter);
+
 
 // Serve static files
 app.use(express.static('build'));

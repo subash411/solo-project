@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux';
 
 
-const DeleteItem = ({media}) => {
+const DeleteMediaItem = ({media}) => {
     const dispatch = useDispatch();
 
     const onDelete = () => {
@@ -20,4 +20,4 @@ const DeleteItem = ({media}) => {
         </div>
     )
 }
-export default DeleteItem;
+export default DeleteMediaItem;

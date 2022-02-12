@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import DeleteMediaItem from '../DeleteMediaItem/DeleteMediaItem';
+import DeleteMemeItem from '../DeleteMemeItem/DeleteMemeItem';
 
-const LikeItem = ({media}) => {
+const LikeMemeItem = ({meme}) => {
     const dispatch = useDispatch();
 
     // function to update likes
     const moreLikes = () => {
     // send data to server side
-    axios.put(`/api/media/like/${media.id}`)
+    axios.put(`/api/meme/like/${meme.id}`)
       .then((res) => {
         // tell client of success
         console.log('axios PUT success', res);
         dispatch({
-          type: 'FETCH_MEDIA'
+          type: 'FETCH_MEME'
         })
       })
       .catch((err) => {
@@ -26,14 +26,15 @@ const LikeItem = ({media}) => {
     return (
         <>
             <div className="buttonArea">
-                <button className="likes" onClick={() => moreLikes(media.id)}>&#128077;</button>
-                <DeleteMediaItem media={media} />
+                <button className="likes" onClick={() => moreLikes(meme.id)}>&#128077;</button>
+                <DeleteMemeItem meme={meme} />
             </div>
             <div className="likeText">
-                <p>{media.likes} people like this</p>
+                <p>{meme.likes} people like this</p>
             </div>
         </>
     )
         
 }
-export default LikeItem;
+export default LikeMemeItem;
+      
