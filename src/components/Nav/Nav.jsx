@@ -36,7 +36,7 @@ function Nav() {
                Meme
             </Link>
 
-            <Link className="navLink" to="/video">
+            <Link className="navLink" to={`/video/${user.id}`}>
                Video
             </Link>
 

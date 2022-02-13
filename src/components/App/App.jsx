@@ -24,6 +24,8 @@ import MediaList from '../MediaList/MediaList';
 import MediaForm from '../MediaForm/MediaForm';
 import MemeList from '../MemeList/MemeList';
 import MemeForm from '../MemeForm/MemeForm';
+import VideoList from '../VideoList/VideoList';
+import VideoForm from '../VideoForm/VideoForm';
 
 import './App.css';
 
@@ -100,6 +102,22 @@ function App() {
           >
             <MemeForm />
           </Route>
+
+          <Route
+            exact
+            path="/video/:id"
+          >
+            <VideoList />
+          </Route>
+
+          <Route
+            exact
+            path="/videoForm/:id"
+          >
+            <VideoForm />
+          </Route>
+
+          
 
           <Route
             exact

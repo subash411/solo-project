@@ -1,23 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory, useParams} from 'react-router-dom';
-import './MediaForm.css';
 
  
  // const history = useHistory();
 
-function MediaForm() {
+function VideoForm() {
     //Set variables for inputs
     const params = useParams();
-    console.log('User id in add media form', params.id);
+    console.log('User id in add  videoForm', params.id);
     const [newTitle, setNewTitle] = useState('');
     const [newUrl, setNewUrl] = useState('');
     const[newDescription, setNewDescription] = useState('');
     
-    const [newMedia, setNewMedia] = useState({
+    const [newVideo, setNewVideo] = useState({
         title: '',
         url: '',
-        description: '',
     })
 
     const dispatch = useDispatch();
@@ -25,7 +23,7 @@ function MediaForm() {
     const history = useHistory();
 
     const handleChange = (evt, property) => {
-        setNewMedia({...newMedia, [property]: evt.target.value})
+        setNewVideo({...newVideo, [property]: evt.target.value})
         
     }
 
@@ -35,10 +33,10 @@ const handleSubmit = (event) => {
     //setup data to be added from inputs
 
     dispatch({
-        type: 'SET_MEDIA',
-        payload: newMedia
+        type: 'SET_VIDEO',
+        payload: newVideo
     });
-    history.push(`/media/${params.id}`)
+    history.push(`/video/${params.id}`)
     // //sent data to server side
     // addMedia(newItem)
 
@@ -48,31 +46,31 @@ const handleSubmit = (event) => {
     // setNewDescription('');
 }
 return (
-    <div className="mediaForm">
-        <h3 className="mediaTitle"></h3>
+    <div className="VideoForm">
+        <h3 className="videoTitle">Add to Video</h3>
         <form onSubmit={handleSubmit}>
 
                 <label>Title:</label>
                 <input
                     type="text"
                     onChange = {(evt) => handleChange(evt, "title")}
-                    value={newMedia.title}
+                    value={newVideo.title}
                 />
 
                 <label>Url:</label>
                 <input
                     type="text"
                     onChange = {(evt) => handleChange(evt, "url")}
-                    value={newMedia.url}
+                    value={newVideo.url}
                 />
                 
 
-                <label>Description:</label>
+                {/* <label>Description:</label>
                 <input
                     type="text"
                     onChange = {(evt) => handleChange(evt, "description")}
                     value={newMedia.description}
-                />
+                /> */}
 
                 <button className="addBtn">Add</button>
         </form>
@@ -80,4 +78,4 @@ return (
 )
 }
 
-export default MediaForm;
+export default VideoForm;
