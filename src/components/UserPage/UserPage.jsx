@@ -20,8 +20,9 @@ function UserPage() {
        <br></br>
 
        <center>
-       <Link to="/video"><button className="btn">Video</button></Link>
+       <Link to={`/video/${user.id}`} ><button className="btn">video</button></Link>
        </center>
+       
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
     </div>

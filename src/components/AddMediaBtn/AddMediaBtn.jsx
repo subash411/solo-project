@@ -1,4 +1,5 @@
 import { useHistory, useParams } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 function AddMediaBtn () {
     const history = useHistory();
@@ -7,12 +8,11 @@ function AddMediaBtn () {
 
     return (
         <>
-        <button 
-        onClick={() => history.push(`/mediaForm/${params.id}`)}
-        >
+    <Link to={`/mediaForm/${params.id}`}> 
+        <button >
             Add Media
         </button>
-        
+        </Link>
         </>
     )
 }

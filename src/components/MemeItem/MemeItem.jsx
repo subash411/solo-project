@@ -7,6 +7,7 @@ const MemeItem = ({meme}) => {
     return (
         
         <div key={meme.id} className="displayArea">
+            <h2>{meme.title}</h2>
             <div className="toggleArea" onClick={() => setTurner(!turner)}>
              <img className="pic" src={meme.url} /> 
             </div>
