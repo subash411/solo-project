@@ -4,6 +4,7 @@ import user from './user.reducer';
 import mediaReducer from'./media.reducer';
 import memeReducer from './meme.reducer';
 import videoReducer from './video.reducer';
+import selectedReducer from './selected.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
  mediaReducer,
  memeReducer,
- videoReducer
+ videoReducer,
+ selectedReducer
 });
 
 export default rootReducer;

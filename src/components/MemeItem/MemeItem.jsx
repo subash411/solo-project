@@ -1,19 +1,34 @@
 import React, {useState} from 'react';
 import LikeMemeItem from './LikeMemeItem/LikeMemeItem';
-import './MemeItem.css'
+import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
 const MemeItem = ({meme}) => {
     console.log('meme in memeItem', meme);
-    const [turner, setTurner] = useState(true);
+const dispatch = useDispatch();
+const history = useHistory();
+
+    const handleMeme = (meme) => {
+        console.log('in handleMeme', meme);
+
+        dispatch ({
+            type: 'SET_SELECTED',
+            payload: meme
+        });
+        history.push('/memeDetails')
+    } 
     return (
         
         <div key={meme.id} className="displayArea">
             <h2>{meme.title}</h2>
-            <div className="toggleArea" onClick={() => setTurner(!turner)}>
-             <img className="pic" src={meme.url}
-             height={400}
-             width={350}
-              /> 
+            <div className="toggleArea" >
+                <img 
+                onClick={() => handleMeme(meme)} 
+                className="pic" 
+                src={meme.url} 
+                height={300}
+                width={350}
+                 /> 
             </div>
             <LikeMemeItem
                 meme={meme}
