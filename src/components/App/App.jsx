@@ -26,7 +26,8 @@ import MemeList from '../MemeList/MemeList';
 import MemeForm from '../MemeForm/MemeForm';
 import VideoList from '../VideoList/VideoList';
 import VideoForm from '../VideoForm/VideoForm';
-import Details from '../Details/Details';
+import MediaDetails from '../MediaDetails/MediaDetails';
+import MemeDetails from '../MemeDetails/MemeDetails';
 
 import './App.css';
 
@@ -120,9 +121,16 @@ function App() {
 
           <Route
             exact
-            path="/details/:id"
+            path="/mediaDetails"
           >
-            <Details />
+            <MediaDetails />
+          </Route>
+
+          <Route
+            exact
+            path="/memeDetails"
+          >
+            <MemeDetails />
           </Route>
 
           

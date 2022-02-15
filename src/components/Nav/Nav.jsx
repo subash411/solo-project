@@ -40,10 +40,7 @@ function Nav() {
                Video
             </Link>
 
-            <Link className="navLink" to={`/details/${user.id}`}>
-               Details
-            </Link>
-
+            
             <Link className="navLink" to="/info">
               Info Page
             </Link>
