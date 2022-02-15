@@ -9,7 +9,11 @@ const MediaItem = ({media}) => {
         <div key={media.id} className="displayArea">
             <h2>{media.title}</h2>
             <div className="toggleArea" onClick={() => setTurner(!turner)}>
-                {turner ? <img className="pic" src={media.url} /> : <h4>{media.description}</h4>}
+                {turner ? <img className="pic" src={media.url} 
+                height={300}
+                width={350}
+                 /> 
+                 : <h4>{media.description}</h4>}
             </div>
             <LikeMediaItem
                 media={media}

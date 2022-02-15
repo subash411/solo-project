@@ -8,7 +8,14 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-      <p>Info Page</p>
+      <p>Hi thank you for stopping by on my app, I created this app for a fun purpose
+        and try to forget about the problems that is going around us.
+        </p>
+      
+       <p>
+        Here you can come checkout cool images, funny memes and watch some videos, you can also like
+        delete and upload your owm images, memes and videos.
+      </p>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom'
 import AddMemeBtn from '../AddMemeBtn/AddMemeBtn'
+import './MemeList.css'
 
 const MemeList = () => {
     // passing the User Id around
