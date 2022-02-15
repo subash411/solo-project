@@ -26,6 +26,7 @@ import MemeList from '../MemeList/MemeList';
 import MemeForm from '../MemeForm/MemeForm';
 import VideoList from '../VideoList/VideoList';
 import VideoForm from '../VideoForm/VideoForm';
+import Details from '../Details/Details';
 
 import './App.css';
 
@@ -115,6 +116,13 @@ function App() {
             path="/videoForm/:id"
           >
             <VideoForm />
+          </Route>
+
+          <Route
+            exact
+            path="/details/:id"
+          >
+            <Details />
           </Route>
 
           
