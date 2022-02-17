@@ -4,6 +4,8 @@ import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom'
 import AddMediaBtn from '../AddMediaBtn/AddMediaBtn'
 
+import './mediaList.css';
+
 const MediaList = () => {
     // passing the User Id around
     const params = useParams();

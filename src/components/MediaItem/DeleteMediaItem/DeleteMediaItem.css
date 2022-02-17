@@ -1,0 +1,16 @@
+.delete{
+  box-shadow: 0 8px 16px 0 rgba(4, 15, 173, 0.2), 0 6px 20px 0 rgba(29, 6, 233, 0.19);
+  background-color: #0b9df1; 
+  border: none;
+  color: rgb(3, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: cursive;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}

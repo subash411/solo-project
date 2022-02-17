@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
-
+import './MediaDetails.css';
 
 const MediaDetails = () => {
 

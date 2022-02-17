@@ -1,4 +1,5 @@
 import {useDispatch} from 'react-redux';
+import './DeleteMediaItem.css';
 
 
 const DeleteMediaItem = ({media}) => {

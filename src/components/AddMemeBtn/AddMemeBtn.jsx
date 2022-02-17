@@ -1,4 +1,5 @@
 import { useHistory, useParams } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 function AddMemeBtn () {
     const history = useHistory();
@@ -7,12 +8,11 @@ function AddMemeBtn () {
 
     return (
         <>
-        <button 
-        onClick={() => history.push(`/memeForm/${params.id}`)}
-        >
+    <Link to={`/memeForm/${params.id}`}> 
+        <button className ="btn" >
             Add Meme
         </button>
-        
+        </Link>
         </>
     )
 }

@@ -9,7 +9,7 @@ function AddMediaBtn () {
     return (
         <>
     <Link to={`/mediaForm/${params.id}`}> 
-        <button >
+        <button className ="btn" >
             Add Media
         </button>
         </Link>

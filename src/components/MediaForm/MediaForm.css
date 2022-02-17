@@ -1,0 +1,38 @@
+.addBtn{
+    background-color: #afda17; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.title{  
+  border: none;
+  color: rgb(12, 11, 11);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.url{ 
+  border: 1px;
+  color: rgb(15, 15, 15);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.description{   
+  border: 1px;
+  color: rgb(8, 7, 7);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
