@@ -28,7 +28,6 @@ import VideoList from '../VideoList/VideoList';
 import VideoForm from '../VideoForm/VideoForm';
 import MediaDetails from '../MediaDetails/MediaDetails';
 import MemeDetails from '../MemeDetails/MemeDetails';
-
 import './App.css';
 
 function App() {

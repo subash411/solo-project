@@ -52,14 +52,14 @@ return (
         <h3 className="mediaTitle"></h3>
         <form onSubmit={handleSubmit}>
 
-                <label>Title:</label>
+                <label className="title">Title:</label>
                 <input
                     type="text"
                     onChange = {(evt) => handleChange(evt, "title")}
                     value={newMedia.title}
                 />
 
-                <label>Url:</label>
+                <label className="url">Url:</label>
                 <input
                     type="text"
                     onChange = {(evt) => handleChange(evt, "url")}
@@ -67,7 +67,7 @@ return (
                 />
                 
 
-                <label>Description:</label>
+                <label className="description">Description:</label>
                 <input
                     type="text"
                     onChange = {(evt) => handleChange(evt, "description")}

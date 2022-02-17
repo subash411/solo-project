@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import LikeMediaItem from './LikeMediaItem/LikeMediaItem';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+import './MediaItem.css';
 
 const MediaItem = ({media}) => {
     console.log('media in mediaItem', media);

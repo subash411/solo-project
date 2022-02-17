@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import LikeMemeItem from './LikeMemeItem/LikeMemeItem';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+import './MemeItem.css';
+
 
 const MemeItem = ({meme}) => {
     console.log('meme in memeItem', meme);
@@ -20,7 +22,7 @@ const history = useHistory();
     return (
         
         <div key={meme.id} className="displayArea">
-            <h2>{meme.title}</h2>
+            <h2 className="title">{meme.title}</h2>
             <div className="toggleArea" >
                 <img 
                 onClick={() => handleMeme(meme)} 

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
+import './MemeDetails.css';
 
 
 const MemeDetails = () => {

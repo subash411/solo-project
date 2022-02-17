@@ -1,18 +1,19 @@
 import { useHistory, useParams } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 function AddVideoBtn () {
     const history = useHistory();
-    const params = useParams();
-    console.log('addMemeBtn id', params.id);
+    const params = useParams()
+    console.log('addVideoBtn id', params.id);
+    
 
     return (
         <>
-        <button 
-        onClick={() => history.push(`/videoForm/${params.id}`)}
-        >
+    <Link to={`/videoForm/${params.id}`}> 
+        <button className ="btn" >
             Add Video
         </button>
-        
+        </Link>
         </>
     )
 }

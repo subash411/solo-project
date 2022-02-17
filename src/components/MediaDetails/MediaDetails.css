@@ -1,0 +1,16 @@
+img{ 
+    border-radius: 20px;
+    border: 2px solid rgb(8, 8, 8);
+    
+}
+.mediaTitle{
+    font-family: cursive;
+}
+.displayArea{
+    font-family: cursive;
+}
+
+.mediaDesc{
+    font-family: cursive;
+    font-size: larger;
+}

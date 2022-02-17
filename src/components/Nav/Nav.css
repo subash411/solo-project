@@ -40,3 +40,8 @@
 .navLink:hover {
   background-color: #008183;
 }
+
+.nav-title{
+  font-family: cursive;
+  color:  #fcb69f;
+}
