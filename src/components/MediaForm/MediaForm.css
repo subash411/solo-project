@@ -1,5 +1,5 @@
 .addBtn{
-    background-color: #afda17; 
+  background-color: #afda17; 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -35,4 +35,10 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+.addBtn:hover{
+  box-shadow: inset 300px 0 0 0 rgb(12, 190, 221);
+  cursor: pointer;
+  color: rgb(236, 16, 16);
 }

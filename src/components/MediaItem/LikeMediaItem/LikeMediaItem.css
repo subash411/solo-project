@@ -1,0 +1,23 @@
+.likes:hover{
+    box-shadow: inset 300px 0 0 0 rgb(208, 255, 0);
+    cursor: pointer;
+    color: rgb(236, 16, 16);
+  }
+
+  .likes{
+    box-shadow: 0 8px 16px 0 rgba(4, 15, 173, 0.2), 0 6px 20px 0 rgba(29, 6, 233, 0.19);
+    background-color: #26f10b; 
+    border: none;
+    color: rgb(3, 0, 0);
+    padding: 3px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 2px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+  
+  }
+  
