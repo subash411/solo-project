@@ -5,6 +5,7 @@ function AddMediaBtn () {
     const history = useHistory();
     const params = useParams();
     console.log('addMediaBtn id', params.id);
+    
 
     return (
         <>

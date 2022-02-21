@@ -17,10 +17,10 @@ const history = useHistory();
             payload: media
         });
         history.push('/mediaDetails')
-    } 
+       } 
     return (
-        
-        <div key={media.id} className="displayArea">
+        <>
+        <div  key={media.id} className="displayArea">
             <h2>{media.title}</h2>
             <div className="toggleArea" >
                 <img 
@@ -30,11 +30,14 @@ const history = useHistory();
                 height={300}
                 width={350}
                  /> 
+                 
             </div>
+        
             <LikeMediaItem
                 media={media}
              />
         </div>
+        </>
     )
 }
 

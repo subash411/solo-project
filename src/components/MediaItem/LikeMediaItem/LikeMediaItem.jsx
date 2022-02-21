@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import DeleteMediaItem from '../DeleteMediaItem/DeleteMediaItem';
 
+import './LikeMediaItem.css';
+
+
 const LikeItem = ({media}) => {
     const dispatch = useDispatch();
 
@@ -26,7 +29,7 @@ const LikeItem = ({media}) => {
     return (
         <>
             <div className="buttonArea">
-                <button className="likes" onClick={() => moreLikes(media.id)}>&#128077;</button>
+                <button className="likes" onClick={() => moreLikes(media.id)}>&#128077;&#127995;</button>
                 <DeleteMediaItem media={media} />
             </div>
             <div className="likeText">

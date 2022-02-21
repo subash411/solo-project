@@ -9,7 +9,17 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>Thank you for stopping by!</p>
+        <p>Thank you for stopping by!
+          <br></br>
+          Technologies used
+          <br></br>
+          React,
+          Redux,  
+          CSS,
+          node,
+          Postico,
+          and express.
+        </p>
       </div>
     </div>
   );

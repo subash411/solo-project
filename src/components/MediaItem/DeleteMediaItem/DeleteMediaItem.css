@@ -13,4 +13,11 @@
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+
+}
+
+.delete:hover{
+  box-shadow: inset 300px 0 0 0 rgb(208, 255, 0);
+  cursor: pointer;
+  color: rgb(236, 16, 16);
 }
