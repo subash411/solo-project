@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
+const {
+    rejectUnauthenticated,
+  } = require('../modules/authentication-middleware');
+
 
 //PUT updating Likes
-router.put('/like/:memeId', (req, res) => {
+router.put('/like/:memeId', rejectUnauthenticated, (req, res) => {
     console.log('meme ID', req.params.memeId);
 
     const queryText = `
@@ -29,7 +33,7 @@ router.put('/like/:memeId', (req, res) => {
 }); // END PUT updating Likes
 
 // GET Route
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated,(req, res) => {
     // res.send(memeItems);
 
     const queryText = `
@@ -51,7 +55,7 @@ router.get('/', (req, res) => {
 }); // END GET Route
 
 // POST creating new meme
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     // check data sent
     console.log('new meme', req.body);
 
@@ -82,7 +86,7 @@ router.post('/', (req, res) => {
 });// end POST route
 
 // DELETE Meme
-router.delete('/:memeId', (req, res) => {
+router.delete('/:memeId', rejectUnauthenticated, (req, res) => {
     console.log('delete memeId', req.params.memeId);
     
     const queryText = `

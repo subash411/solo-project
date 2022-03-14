@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
+const {
+    rejectUnauthenticated,
+  } = require('../modules/authentication-middleware');
 
 //PUT updating Likes
-router.put('/like/:mediaId', (req, res) => {
+router.put('/like/:mediaId', rejectUnauthenticated,(req, res) => {
     console.log('media ID', req.params.mediaId);
 
     const queryText = `
@@ -29,7 +32,7 @@ router.put('/like/:mediaId', (req, res) => {
 }); // END PUT updating Likes
 
 // GET Route
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     // res.send(galleryItems);
 
     const queryText = `
@@ -51,7 +54,7 @@ router.get('/', (req, res) => {
 }); // END GET Route
 
 // POST creating new media
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     // check data sent
     console.log('new media', req.body);
 
@@ -83,7 +86,7 @@ router.post('/', (req, res) => {
 });// end POST route
 
 // DELETE Media
-router.delete('/:mediaId', (req, res) => {
+router.delete('/:mediaId', rejectUnauthenticated, (req, res) => {
     console.log('delete mediaId', req.params.mediaId);
     
     const queryText = `

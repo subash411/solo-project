@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
+const {
+    rejectUnauthenticated,
+  } = require('../modules/authentication-middleware');
 
 //PUT updating Likes
-router.put('/like/:videoId', (req, res) => {
+router.put('/like/:videoId',rejectUnauthenticated, (req, res) => {
     console.log('video ID', req.params.videoId);
 
     const queryText = `
@@ -29,7 +32,7 @@ router.put('/like/:videoId', (req, res) => {
 }); // END PUT updating Likes
 
 // GET Route
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated,(req, res) => {
     // res.send(videoItems);
 
     const queryText = `
@@ -51,7 +54,7 @@ router.get('/', (req, res) => {
 }); // END GET Route
 
 // POST creating new video
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated,(req, res) => {
     // check data sent
     console.log('new video', req.body);
 
@@ -82,7 +85,7 @@ router.post('/', (req, res) => {
 });// end POST route
 
 // DELETE video
-router.delete('/:videoId', (req, res) => {
+router.delete('/:videoId', rejectUnauthenticated, (req, res) => {
     console.log('delete videoId', req.params.videoId);
     
     const queryText = `
